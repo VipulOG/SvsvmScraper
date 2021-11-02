@@ -3,8 +3,13 @@ import svsvm
 import urllib
 from svsvm import Student
 
-
 def write_student_data_to_json(new_data, file_path):
+    """
+    Store student data to students json array in given json file.
+    Parameters:
+      new_data - Data to be stored.
+      file_path - Json file for storing student data.
+    """
     with open(file_path, 'r+') as file:
         try:
             file_data = json.load(file)
@@ -19,6 +24,12 @@ def write_student_data_to_json(new_data, file_path):
 
 
 def download_image(image_src, file_path):
+    """
+    Download image to given destination from given url.
+    Parameters:
+      image_src - Url of the image.
+      file_path - Path for storing the image.
+    """
     urllib.request.urlretrieve(image_src, file_path)
 
 
@@ -27,12 +38,16 @@ def download_image(image_src, file_path):
 # Find viewstate with CTRL + F
 viewstate = "/wEPDwUKMTU5ODgwODg2MGRk8WrbB0Ffr44vR94Ql9vJyxcKKeOwpA/0q2v3Bd0NPJ4="
 event_validation = "/wEdAAY7l+Pk4oz8H0HfWduzhi93MesnWyCl+92OuOyCUhJ8S1VS6jraZV9gZQt5xkzzeiRYy22tG4iL1oTcMGDUNyc4Q9M+R09aX7xg3Y20MK3GJ6KeKEbp39eHc9mbdvkCgxA7swhe1jaUn96KCmogabE3B97ttVYy95V8fqQHYve00Q=="
-# student_id = 6275
-student_id = 9132
+
+# First and last student id as on 2/11/21
+student_id = 6275
+final_student_id = 10400
+
+# Directories for storing images and student data
 data_json_path = "data/data.json"
 image_dir_path = "data/images"
-should_increment = True
-while (student_id < 10400):
+
+while (student_id < final_student_id):
     should_increment = True
 
     try:
